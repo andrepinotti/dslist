@@ -23,10 +23,14 @@ public class Game {
 	private Integer year;
 	
 	private String genre;
-	private String platform;
+	private String platforms;
 	private Double score;
 	private String imgUrl;
+	
+	@Column(columnDefinition = "Text")
 	private String shortDescription;
+	
+	@Column(columnDefinition = "Text")
 	private String longDescription;
 	
 	public Game() {}
@@ -38,7 +42,7 @@ public class Game {
 		this.title = title;
 		this.year = year;
 		this.genre = genre;
-		this.platform = platform;
+		this.platforms = platforms;
 		this.score = score;
 		this.imgUrl = imgUrl;
 		this.shortDescription = shortDescription;
@@ -48,7 +52,7 @@ public class Game {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(genre, id, imgUrl, longDescription, platform, score, shortDescription, title, year);
+		return Objects.hash(genre, id, imgUrl, longDescription, platforms, score, shortDescription, title, year);
 	}
 
 	@Override
@@ -62,7 +66,7 @@ public class Game {
 		Game other = (Game) obj;
 		return Objects.equals(genre, other.genre) && Objects.equals(id, other.id)
 				&& Objects.equals(imgUrl, other.imgUrl) && Objects.equals(longDescription, other.longDescription)
-				&& Objects.equals(platform, other.platform) && Objects.equals(score, other.score)
+				&& Objects.equals(platforms, other.platforms) && Objects.equals(score, other.score)
 				&& Objects.equals(shortDescription, other.shortDescription) && Objects.equals(title, other.title)
 				&& Objects.equals(year, other.year);
 	}
@@ -100,11 +104,11 @@ public class Game {
 	}
 
 	public String getPlatform() {
-		return platform;
+		return platforms;
 	}
 
-	public void setPlatform(String platform) {
-		this.platform = platform;
+	public void setPlatform(String platforms) {
+		this.platforms = platforms;
 	}
 
 	public Double getScore() {
